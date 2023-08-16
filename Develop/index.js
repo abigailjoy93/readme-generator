@@ -1,35 +1,44 @@
 // TODO: Include packages needed for this application
-const inquirer = require("inquirer.js");
+const inquirer = require("inquirer");
+const fs = require("fs");
 
 // TODO: Create an array of questions for user input
 const questions = [
   {
-    question: "What is the title of your project?",
-    type: "text",
+    type: "input",
+    name: "title",
+    message: "What is the title of your project?",
   },
   {
-    question: "Please describe your project.",
-    type: "text",
+    type: "input",
+    name: "description",
+    message: "Please describe your project.",
   },
   {
-    question: "Please outline the installation instructions.",
-    type: "text",
+    type: "input",
+    name: "installation",
+    message: "Please outline the installation instructions.",
   },
   {
-    question: "What is the intended use of this application?",
-    type: "text",
+    type: "input",
+    name: "usage",
+    message: "What is the intended use of this application?",
   },
   {
-    question: "Are there any contributions you would like to name?",
-    type: "text",
+    type: "input",
+    name: "contributions",
+    message: "Are there any contributions you would like to name?",
   },
   {
-    question: "Please outline the testing instructions.",
-    type: "text",
+    type: "input",
+    name: "testingInstructions",
+    message: "Please outline the testing instructions.",
   },
   {
-    question: "Which license is your application covered under?",
-    options: [
+    type: "list",
+    name: "license",
+    message: "Which license is your application covered under?",
+    choices: [
       "Apache License 2.0",
       "GNU General Public License v3.0",
       "MIT License",
@@ -45,20 +54,28 @@ const questions = [
     ],
   },
   {
-    question: "What is your GitHub username?",
-    type: "url",
+    type: "input",
+    name: "gitHubUserName",
+    message: "What is your GitHub username?",
   },
   {
-    question: "What is your email address?",
-    type: "email",
+    type: "input",
+    name: "emailAddress",
+    message: "What is your email address?",
   },
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+console.log(process.argv);
+
+// // TODO: Create a function to write README file
+function writeToFile(filename, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((answers) => {
+    writeToFile("README.md", answers);
+  });
+}
 
 // Function call to initialize app
 init();
