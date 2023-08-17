@@ -65,16 +65,57 @@ const questions = [
   },
 ];
 
-console.log(process.argv);
+function generateData(answers) {
+  return `
+  #${answers.title}
 
-// // TODO: Create a function to write README file
-function writeToFile(filename, data) {}
+  ##Description
+  ${answers.description}
+  
+  ##Table of Contents
+  Installation
+  Usage
+  Contributions
+  License
+  Tests
+  Questions
+
+  ##Installation
+  ${answers.installation}
+  
+  ##Usage
+  ${answers.usage}
+
+  ##License
+  ${answers.license}
+
+  ##Contributions
+  ${answers.contributions}
+
+  ##Questions
+  GitHub: ${answers.gitHubUserName}
+  For any additional questions, feel free to contact me at: ${answers.emailAddress}
+  `;
+}
+
+// TODO: Create a function to write README file
+function writeToFile(filename, content) {
+  fs.writeFile(filename, content, (err) =>
+    err ? console.error(err) : console.log("Success!")
+  );
+}
 
 // TODO: Create a function to initialize app
 function init() {
-  inquirer.prompt(questions).then((answers) => {
-    writeToFile("README.md", answers);
-  });
+  inquirer
+    .prompt(questions)
+    .then((answers) => {
+      const readmeData = generateData(answers);
+      writeToFile("README.md", readmeData);
+    })
+    .catch((error) => {
+      console.error("Error occured", error);
+    });
 }
 
 // Function call to initialize app
