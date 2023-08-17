@@ -128,50 +128,43 @@ function generateData(answers) {
 
   ##Table of Contents
 
-  - [Installation](#installation)
+  - [Installation](#Installation)
 
-  - [Usage](#usage)
+  - [Usage](#Usage)
 
-  - [Contributions](#contributions)
+  - [Contributions](#Contributions)
 
-  - [License](#license)
+  - [License](#License)
 
-  - [Tests](#tests)
+  - [Tests](#Tests)
 
-  - [Questions](#questions)
+  - [Questions](#Questions)
 
 
   ##Installation
-
   ${answers.installation}
 
   
   ##Usage
-
   ${answers.usage}
 
 
   ##License
-
   This application is covered under ${answers.license}.
   For deatils, see ${licenseTCURL}.
 
 
   ##Contributions
-
   ${answers.contributions}
 
   
   ##Tests
-
   ${answers.testingInstructions}
 
 
   ##Questions
-
   GitHub: https://github.com/${answers.gitHubUserName}
-
-  For any additional questions, feel free to contact me at: ${answers.emailAddress}
+  For any additional questions, feel free to contact me at: <a href="mailto:${answers.emailAddress}">${answers.emailAddress}</a>
   `;
 }
 
