@@ -1,57 +1,50 @@
 
-  #d
-  ![License]((https://img.shields.io/badge/License-Apache_2.0-blue.svg))
+  #Dog Spotter
+  ![License]((https://img.shields.io/badge/License-MIT-yellow.svg))
 
 
   ##Description
 
-  d
+  An application to help individuals find the right dog
   
 
   ##Table of Contents
 
-  - [Installation](#installation)
+  - [Installation](#Installation)
 
-  - [Usage](#usage)
+  - [Usage](#Usage)
 
-  - [Contributions](#contributions)
+  - [Contributions](#Contributions)
 
-  - [License](#license)
+  - [License](#License)
 
-  - [Tests](#tests)
+  - [Tests](#Tests)
 
-  - [Questions](#questions)
+  - [Questions](#Questions)
 
 
   ##Installation
-
-  d
+  none
 
   
   ##Usage
-
-  d
+  To help individuals find the right canine match based on personality, temperment, and energy level
 
 
   ##License
-
-  This application is covered under Apache License 2.0.
-  For deatils, see https://opensource.org/license/apache-2-0/.
+  This application is covered under MIT License.
+  For deatils, see https://opensource.org/license/mit/.
 
 
   ##Contributions
-
-  d
+  github
 
   
   ##Tests
-
-  d
+  none
 
 
   ##Questions
-
-  GitHub: https://github.com/d
-
-  For any additional questions, feel free to contact me at: d
+  GitHub: https://github.com/abigailjoy93
+  For any additional questions, feel free to contact me at: <a href="mailto:abigail.turnwall@gmail.com">abigail.turnwall@gmail.com</a>
   
