@@ -44,11 +44,10 @@ const questions = [
       "MIT License",
       "BSD 2-Clause 'Simplified' License",
       "BSD 3-Clause 'New' or 'Revised' License",
-      "Boost Software License 1.0,",
       "Creative Commons Zero v1.0 Universal",
       "Eclipse Public License 2.0",
-      "GNU Affero General Publi License v2.0",
-      "GNU Lesser General Public License v2.1",
+      "GNU Affero General Public License v3.0",
+      "GNU Lesser General Public License v3.0",
       "Mozilla Public License 2.0",
       "The Unlicense",
     ],
@@ -65,35 +64,113 @@ const questions = [
   },
 ];
 
+function licenseBadge(license) {
+  const badge = {
+    "Apache License 2.0":
+      "(https://img.shields.io/badge/License-Apache_2.0-blue.svg)",
+    "GNU General Public License v3.0":
+      "(https://img.shields.io/badge/License-GPLv3-blue.svg)",
+    "MIT License": "(https://img.shields.io/badge/License-MIT-yellow.svg)",
+    "BSD 2-Clause 'Simplified' License":
+      "(https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)",
+    "BSD 3-Clause 'New' or 'Revised' License":
+      "(https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)",
+    "Creative Commons Zero v1.0 Universal":
+      "(https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)",
+    "Eclipse Public License 2.0":
+      "(https://img.shields.io/badge/License-EPL%201.0-red.svg)",
+    "GNU Affero General Public License v3.0":
+      "(https://img.shields.io/badge/License-AGPL%20v3-blue.svg)",
+    "GNU Lesser General Public License v3.0":
+      "(https://img.shields.io/badge/License-LGPL%20v3-blue.svg)",
+    "Mozilla Public License 2.0":
+      "(https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)",
+    "The Unlicense":
+      "(https://img.shields.io/badge/license-Unlicense-blue.svg)",
+  };
+  return badge[license] || "";
+}
+
+function licenseTermsAndConditions(license) {
+  const termsAndConditions = {
+    "Apache License 2.0": "https://opensource.org/license/apache-2-0/",
+    "GNU General Public License v3.0": "https://www.gnu.org/licenses/gpl-3.0",
+    "MIT License": "https://opensource.org/license/mit/",
+    "BSD 2-Clause 'Simplified' License":
+      "https://opensource.org/license/bsd-2-clause/",
+    "BSD 3-Clause 'New' or 'Revised' License":
+      "https://opensource.org/license/bsd-3-clause/",
+    "Creative Commons Zero v1.0 Universal":
+      "https://creativecommons.org/publicdomain/zero/1.0/",
+    "Eclipse Public License 2.0": "https://opensource.org/license/epl-1-0/",
+    "GNU Affero General Public License v3.0":
+      "https://www.gnu.org/licenses/agpl-3.0",
+    "GNU Lesser General Public License v3.0":
+      "https://www.gnu.org/licenses/lgpl-3.0",
+    "Mozilla Public License 2.0": "https://opensource.org/license/mpl-2-0/",
+    "The Unlicense": "https://unlicense.org/",
+  };
+  return termsAndConditions[license] || "";
+}
+
 function generateData(answers) {
+  const licenseBadgeURL = licenseBadge(answers.license);
+  const licenseTCURL = licenseTermsAndConditions(answers.license);
   return `
   #${answers.title}
+  ![License](${licenseBadgeURL})
+
 
   ##Description
+
   ${answers.description}
   
+
   ##Table of Contents
-  Installation
-  Usage
-  Contributions
-  License
-  Tests
-  Questions
+
+  - [Installation](#installation)
+
+  - [Usage](#usage)
+
+  - [Contributions](#contributions)
+
+  - [License](#license)
+
+  - [Tests](#tests)
+
+  - [Questions](#questions)
+
 
   ##Installation
+
   ${answers.installation}
+
   
   ##Usage
+
   ${answers.usage}
 
+
   ##License
-  ${answers.license}
+
+  This application is covered under ${answers.license}.
+  For deatils, see ${licenseTCURL}.
+
 
   ##Contributions
+
   ${answers.contributions}
 
+  
+  ##Tests
+
+  ${answers.testingInstructions}
+
+
   ##Questions
-  GitHub: ${answers.gitHubUserName}
+
+  GitHub: https://github.com/${answers.gitHubUserName}
+
   For any additional questions, feel free to contact me at: ${answers.emailAddress}
   `;
 }
